@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Casio 工程計算機",
+  "version": "1.0.0",
+  "description": "可在瀏覽網頁時隨時叫出的卡西歐風工程計算機。",
+  "action": { "default_title": "開啟工程計算機" },
+  "permissions": ["activeTab", "scripting"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content.js"],
+    "run_at": "document_idle"
+  }],
+  "commands": {
+    "toggle-calculator": {
+      "suggested_key": { "default": "Ctrl+Shift+C" },
+      "description": "顯示或隱藏工程計算機"
+    }
+  },
+  "icons": {}
+}
